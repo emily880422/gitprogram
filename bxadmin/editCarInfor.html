@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>发布竞价车辆</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="static/layui/css/layui.css">
+<style>
+	.layui-input, .layui-select, .layui-textarea{
+		line-height: 32px;
+	}
+	.layui-breadcrumb{
+		visibility: visible;
+	}
+</style>
+</head>
+	<body>
+		<!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
+		<!--[if lt IE 9]>
+		  <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
+		  <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->   
+		<span class="layui-breadcrumb">
+		  <a>拍卖系统</a>
+		  <a><cite>发布竞价车辆</cite></a>
+		</span>
+		<div class="layui-container">
+			 <div class="layui-text">
+			 		<h2 class="layui-field-title" style="text-align: center;">请详细填写以下内容</h2>
+			 </div>
+			 <form class="layui-form" action="">
+			 		<div class="layui-form-item">
+				    <div class="layui-inline">
+				      <label class="layui-form-label">报案号</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">所属分公司</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">车型</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">车牌</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">车辆户籍地</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">分支机构</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">车架号（vin码）</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">发动机号</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name=""  autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">登记日期</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="date" id="date" lay-verify="date" placeholder="年-月-日" autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				    <div class="layui-inline">
+				      <label class="layui-form-label">出险日期</label>
+				      <div class="layui-input-inline">
+				        <input type="text" name="date" id="date" lay-verify="date" placeholder="年-月-日" autocomplete="off" class="layui-input">
+				      </div>
+				    </div>
+				  </div>
+			 </form>
+			 
+		</div>
+		<script src="static/layui/layui.js"></script>
+		<script>
+		//JavaScript代码区域
+		layui.use(['form', 'layedit', 'laydate'], function(){
+		  var form = layui.form
+		  ,layer = layui.layer
+		  ,layedit = layui.layedit
+		  ,laydate = layui.laydate;
+		  
+		  //日期
+		  laydate.render({
+		    elem: '#date'
+		  });
+		  laydate.render({
+		    elem: '#date1'
+		  });
+		  
+		  //创建一个编辑器
+		  var editIndex = layedit.build('LAY_demo_editor');
+		 
+		  //自定义验证规则
+		  form.verify({
+		    title: function(value){
+		      if(value.length < 5){
+		        return '标题至少得5个字符啊';
+		      }
+		    }
+		    ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+		    ,content: function(value){
+		      layedit.sync(editIndex);
+		    }
+		  });
+		  
+		  //监听指定开关
+		  form.on('switch(switchTest)', function(data){
+		    layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+		      offset: '6px'
+		    });
+		    layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+		  });
+		  
+		  //监听提交
+		  form.on('submit(demo1)', function(data){
+		    layer.alert(JSON.stringify(data.field), {
+		      title: '最终的提交信息'
+		    })
+		    return false;
+		  });
+		  
+		  
+		});
+</script>
+
+	</body>
+</html>

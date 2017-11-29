@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>汽车保险后台管理系统</title>
+  <link rel="stylesheet" href="static/layui/css/layui.css">
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+  <div class="layui-header">
+    <div class="layui-logo">汽车保险后台管理系统</div>
+    <!-- 头部区域（可配合layui已有的水平导航） -->
+    <!--<ul class="layui-nav layui-layout-left">
+      <li class="layui-nav-item"><a href="">控制台</a></li>
+      <li class="layui-nav-item"><a href="">商品管理</a></li>
+      <li class="layui-nav-item"><a href="">用户</a></li>
+      <li class="layui-nav-item">
+        <a href="javascript:;">其它系统</a>
+        <dl class="layui-nav-child">
+          <dd><a href="">邮件管理</a></dd>
+          <dd><a href="">消息管理</a></dd>
+          <dd><a href="">授权管理</a></dd>
+        </dl>
+      </li>
+    </ul>-->
+    <ul class="layui-nav layui-layout-right">
+      <li class="layui-nav-item">
+        <a href="javascript:;">
+          <img src="http://t.cn/RCzsdCq" class="layui-nav-img">
+          管理员
+        </a>
+        <dl class="layui-nav-child">
+          <dd><a href="">基本资料</a></dd>
+          <dd><a href="">安全设置</a></dd>
+        </dl>
+      </li>
+      <li class="layui-nav-item"><a href="">退出</a></li>
+    </ul>
+  </div>
+  
+  <div class="layui-side layui-bg-black">
+    <div class="layui-side-scroll">
+      <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+      <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+      	<li class="layui-nav-item layui-nav-itemed">
+          <a class="" href="javascript:;">首页</a>
+          <dl class="layui-nav-child">
+            <dd class="layui-this"><a target="frame1" href="workTask.html">工作任务</a></dd>
+            <dd><a target="frame1" href="inforList.html">公告信息</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a class="" href="javascript:;">拍卖系统</a>
+          <dl class="layui-nav-child">
+            <dd><a target="frame1" href="editCarInfor.html">发布竞价车辆</a></dd>
+            <dd><a href="carManage.html" target="frame1">车辆管理/状态</a></dd>
+            <dd><a target="frame1" href="sellHistory.html">拍卖历史记录</a></dd>
+            <dd><a target="frame1" href="draftBox.html">草稿箱</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">旧件拍卖系统</a>
+          <dl class="layui-nav-child">
+            <dd><a target="frame1" href="javascript:;">发布竞价车辆</a></dd>
+            <dd><a target="frame1" href="javascript:;">车辆管理/状态</a></dd>
+            <dd><a target="frame1" href="javascript:;">拍卖历史记录</a></dd>
+            <dd><a href="">草稿箱</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item ">
+          <a class="" href="javascript:;">旧件修复系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">发布竞价车辆</a></dd>
+            <dd><a href="javascript:;">车辆管理/状态</a></dd>
+            <dd><a href="javascript:;">拍卖历史记录</a></dd>
+            <dd><a href="">草稿箱</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">送修系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">发布竞价车辆</a></dd>
+            <dd><a href="javascript:;">车辆管理/状态</a></dd>
+            <dd><a href="javascript:;">送修历史记录</a></dd>
+            <dd><a href="">草稿箱</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a class="" href="javascript:;">调查系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">发布调查信息</a></dd>
+            <dd><a href="javascript:;">调查管理/状态</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">救援系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">发布救援车辆</a></dd>
+            <dd><a href="javascript:;">救援管理/状态</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a class="" href="javascript:;">追偿系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">发布追偿</a></dd>
+            <dd><a href="javascript:;">追偿管理/状态</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">配件系统</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">发布竞价车辆</a></dd>
+            <dd><a href="javascript:;">车辆管理/状态</a></dd>
+            <dd><a href="javascript:;">拍卖历史记录</a></dd>
+            <dd><a href="">草稿箱</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a class="" href="javascript:;">轨迹查询</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">轨迹查询</a></dd>
+            <dd><a href="javascript:;">我的账户</a></dd>
+            <dd><a href="javascript:;">历史查询</a></dd>
+          </dl>
+        </li>
+        <li class="layui-nav-item">
+          <a href="javascript:;">系统管理</a>
+          <dl class="layui-nav-child">
+            <dd><a href="javascript:;">内部账号管理</a></dd>
+            <dd><a href="javascript:;">外部账号管理</a></dd>
+            <dd><a href="javascript:;">第三方系统统计</a></dd>
+            <dd><a href="">内部系统统计</a></dd>
+          </dl>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <div class="layui-body">
+    <!-- 内容主体区域 -->
+    <div style="padding: 15px;">
+    	<iframe id="mainFrame" name="frame1" src="workTask.html" frameborder="0" width="100%" height="800px"></iframe>
+    </div>
+  </div>
+  
+  <div class="layui-footer">
+    <!-- 底部固定区域 -->
+    © 聚车拍（北京）有限公司
+  </div>
+</div>
+<script src="static/layui/layui.js"></script>
+<script>
+//JavaScript代码区域
+layui.use('element', function(){
+  var element = layui.element;
+  
+});
+</script>
+</body>
+</html>
+      
